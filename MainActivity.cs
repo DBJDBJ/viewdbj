@@ -1,7 +1,9 @@
 
+
 namespace dbjorgview
 {
 	using System;
+	using System.Threading ;
 	using Android.App;
 	using Android.Content;
 	using Android.Runtime;
@@ -10,7 +12,7 @@ namespace dbjorgview
 	using Android.OS;
 	using Android.Webkit;
 
-	[Activity (Label = "dbjorgview", MainLauncher = true, Theme = "@android:style/Theme.NoTitleBar")]
+	[Activity (Label = "dbjorgview", Theme = "@android:style/Theme.NoTitleBar")]
 	public class MainActivity : Activity
 	{
 		WebView web_view;
@@ -46,6 +48,18 @@ namespace dbjorgview
 				view.LoadUrl (url);
 				return true;
 			}
+		}
+	}
+	/*
+	 * splash screen (as an activity)
+	*/
+	[Activity(Theme = "@style/Theme.Splash",  MainLauncher = true, NoHistory = true)]
+	public class SplashActivity : Activity
+	{
+		protected override void OnCreate(Bundle bundle)
+		{
+			base.OnCreate(bundle);
+			StartActivity(typeof(MainActivity));
 		}
 	}
 }
