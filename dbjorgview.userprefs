@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="MainActivity.cs">
     <Files>
-      <File FileName="MainActivity.cs" Line="2" Column="1" />
+      <File FileName="MainActivity.cs" Line="23" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -10,5 +10,7 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <AuthorInfo Name="dbj();" Email="dbj@dbj.org" Copyright="(c) 2014 by dbj();" Company="dbj();" Trademark="" />
-  <MonoDevelop.Ide.ItemProperties.dbj_228_229_23B MonoForAntroid.PreferredDevice="4in WVGA (Nexus S)" AndroidDeviceId-Debug="0019c483154dae" />
+  <MonoDevelop.Ide.ItemProperties.dbj_228_229_23B MonoForAntroid.PreferredDevice="4in WVGA (Nexus S)" AndroidDeviceId-Debug="0019c483154dae" AndroidDeviceId-Release="0019c483154dae">
+    <MonoDroidTestFlightSettings_27CDebug ApiToken="12d8ba3edb3614f23cafd76ff1c28a62_MTQ5MjU3MjIwMTMtMTItMDQgMTk6NDI6MzAuMzQ4MTE5" TeamToken="54f59a5ef841617a2e2009dbaafbbb0b_MzA5MjE1MjAxMy0xMi0wNCAyMDowMDozMi45MTkyOTE" ReleaseNotes="from Xamarin IDE direct" NotifyTeamMembers="True" ReplaceBinaries="True" DistributionLists="" />
+  </MonoDevelop.Ide.ItemProperties.dbj_228_229_23B>
 </Properties>
