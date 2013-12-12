@@ -104,6 +104,9 @@ namespace dbjorgview
 			// aapt resource value: 0x7f040002
 			public const int home_url = 2130968578;
 			
+			// aapt resource value: 0x7f040003
+			public const int splash_url = 2130968579;
+			
 			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

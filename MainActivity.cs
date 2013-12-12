@@ -12,32 +12,51 @@ namespace dbjorgview
 	using Android.OS;
 	using Android.Webkit;
 
+	struct Util {
+		const int min_val = 0 , max_val = 1000 * 60 ;
+		public static void vibrr ( long value = 0 ) 
+		{
+			var vibro_ = Android.OS.Vibrator.FromContext ( app_context );
+			if (value > min_val && value < max_val) vibro_.Vibrate ( value ); 
+		} 
+
+		public static Android.Content.Context app_context { get { return Android.App.Application.Context ; }}
+
+		public static string app_name { get { return app_context.GetString (Resource.String.app_name); }}
+
+		public static void log_debug ( string msg ) {
+			#if DEBUG
+			Android.Util.Log.Debug ( Util.app_name, msg );
+			#endif
+		}
+		public static void log_err ( string msg ) {
+			Android.Util.Log.Error ( Util.app_name, msg );
+		}
+
+		public static void toast ( string msg ) {
+			Toast.MakeText ( app_context,  Util.app_name + " Exit...", ToastLength.Long).Show() ;
+		}
+
+	}
+
 	[Activity (Label = "dbjorgview", Theme = "@android:style/Theme.NoTitleBar")]
 	public class MainActivity : Activity
 	{
 		WebView web_view;
-		/*
-		 * vibrating as propery set
-		*/
-		static Vibrator vibro_ = null ;
-		public static Vibrator vibro ( long value = 0 ) {
-			if (null == vibro_ ) {
-				vibro_ = 
-					Android.OS.Vibrator.FromContext ( Android.App.Application.Context );
-				} ;
-			if (value > 0) vibro_ .Vibrate ( (long)value ); 
-			return vibro_;
-		} 
 
 
 		string home_url { 
 			get { return GetString(Resource.String.home_url ); }
-			set { }
+		}
+
+		string splash_url {
+			get {return GetString(Resource.String.splash_url ); }
 		}
 
 
 		protected override void OnCreate (Bundle bundle)
 		{
+			Util.log_debug( this.GetType().Name + "::OnCreate");
 			try {
 			base.OnCreate (bundle);
 
@@ -46,24 +65,27 @@ namespace dbjorgview
 
 			web_view = FindViewById<WebView> (Resource.Id.webview);
 			web_view.Settings.JavaScriptEnabled = true;
-			web_view.LoadUrl ( this.home_url);
+				web_view.LoadUrl ( this.splash_url);
 
 			web_view.SetWebViewClient (new dbjorgviewClient ());
 			} catch ( SystemException x ) {
-				Toast.MakeText ( this, x.Message, ToastLength.Long).Show() ;
-				#if DEBUG
-				Android.Util.Log.Error (GetString (Resource.String.app_name), x.StackTrace);
-				#endif
+				Util.toast( x.Message ) ;
+				Util.log_err(x.StackTrace);
 			}
 		}
 
 		public override bool OnKeyDown (Android.Views.Keycode keyCode, Android.Views.KeyEvent e)
 		{
-			if (keyCode == Keycode.Back && web_view.CanGoBack ()) {
-				web_view.GoBack ();
-				return true;
+			Util.log_debug( this.GetType().Name + "::OnKeyDown");
+			if (keyCode == Keycode.Back) {
+				if (web_view.CanGoBack ()) {
+					web_view.GoBack ();
+					return true;
+				}
+				Util.log_debug("Exit");
+				this.Finish ();
+				return false;
 			}
-
 			return base.OnKeyDown (keyCode, e);
 		}
 
@@ -71,19 +93,19 @@ namespace dbjorgview
 		{
 			public override bool ShouldOverrideUrlLoading (WebView view, string url)
 			{
+				Util.log_debug ( this.GetType().Name + "::ShouldOverrideUrlLoading");
 				view.LoadUrl (url);
 				return true;
 			}
 
 			public override void OnPageFinished (WebView view, string url)
 			{
+				Util.log_debug ( this.GetType().Name + "::OnPageFinished");
 				try {
 				base.OnPageFinished (view, url);
-					SplashActivity.ON = false ;
-			} catch ( SystemException x ) {
-				#if DEBUG
-					Android.Util.Log.Error ("dbj view web view client", x.StackTrace);
-				#endif
+					SplashActivity.ON = false ; /* this does the initial vibrating also */
+				} catch ( SystemException x  ) {
+					Util.log_err  (this.GetType().Name + "::OnPageFinished exception" + x.StackTrace);
 			}
 			}
 
@@ -99,7 +121,7 @@ namespace dbjorgview
 		public static bool ON {
 			get { return on_ ; }
 			set { 
-				if ( on_ == false && value == true ) MainActivity.vibro (1000);
+//				if ( on_ == false && value == true ) Vibro.rr(1000);
 				on_ = value; 
 			}
 		}
@@ -107,8 +129,25 @@ namespace dbjorgview
 		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
-			SplashActivity.ON = true;
-			StartActivity(typeof(MainActivity));
+			Util.log_debug ( this.GetType().Name + "::OnCreate");
+/*
+			new System.Threading.Tasks.Task
+			(() => {
+*/
+				SplashActivity.ON = true;
+				Intent i = new Intent (this, typeof(MainActivity));
+				StartActivity (i);
+/*
+			}).Start ();
+*/
+		}
+		protected override void OnResume () {
+			base.OnResume() ;
+			Util.log_debug( this.GetType().Name + "::OnResume");
+		}
+		protected override void OnPause () {
+			base.OnPause() ;
+			Util.log_debug( this.GetType().Name + "::OnPause");
 		}
 	}
 }
