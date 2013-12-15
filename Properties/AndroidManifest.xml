@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.5" package="dbjorg.view" android:versionCode="5">
-	<uses-sdk android:targetSdkVersion="10" android:minSdkVersion="10" />
-	<application android:label="dbj();" android:icon="@drawable/icon"></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="artinfo_rs" android:versionCode="1" android:versionName="artinfo_rs_demo">
+	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="10" />
+	<application android:icon="@drawable/icon" android:label="artinfo_rs"></application>
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
