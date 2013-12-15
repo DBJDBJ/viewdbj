@@ -1,19 +1,16 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MainActivity.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="MainActivity.cs" Line="276" Column="63" />
+      <File FileName="MainActivity.cs" Line="247" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="D:\users\korisnik\documents\GitHub\viewdbj\MainActivity.cs" line="155" column="1" />
-      <Breakpoint file="D:\users\korisnik\documents\GitHub\viewdbj\MainActivity.cs" line="238" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <AuthorInfo Name="dbj();" Email="dbj@dbj.org" Copyright="(c) 2014 by dbj();" Company="dbj();" Trademark="" />
-  <MonoDevelop.Ide.ItemProperties.dbjHL MonoForAntroid.PreferredDevice="4in WVGA (Nexus S)" AndroidDeviceId-Debug="0019c483154dae" AndroidDeviceId-Release="0019c483154dae">
+  <MonoDevelop.Ide.ItemProperties.dbjHL MonoForAntroid.PreferredDevice="4in WVGA (Nexus S)" AndroidDeviceId-Debug="0019c483154dae">
     <MonoDroidTestFlightSettings_27CDebug ApiToken="12d8ba3edb3614f23cafd76ff1c28a62_MTQ5MjU3MjIwMTMtMTItMDQgMTk6NDI6MzAuMzQ4MTE5" TeamToken="54f59a5ef841617a2e2009dbaafbbb0b_MzA5MjE1MjAxMy0xMi0wNCAyMDowMDozMi45MTkyOTE" ReleaseNotes="from Xamarin IDE direct" NotifyTeamMembers="False" ReplaceBinaries="True" DistributionLists="" />
   </MonoDevelop.Ide.ItemProperties.dbjHL>
 </Properties>
