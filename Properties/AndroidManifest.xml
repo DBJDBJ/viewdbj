@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="artinfo_rs" android:versionCode="1" android:versionName="artinfo_rs_demo">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="harmonija_5" package="harmonija_5">
 	<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="10" />
-	<application android:icon="@drawable/icon" android:label="artinfo_rs"></application>
+	<application android:icon="@drawable/icon" android:label="Harmonija 5"></application>
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.VIBRATE" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
